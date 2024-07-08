@@ -1,0 +1,27 @@
+<div class="modal">
+  <div class="modal-content">
+    <div>
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Seleccione un hotel</h2>
+    </div>
+    <div *ngFor="let hotel of hoteles" class="vuelos__container">
+      <div class="card" (click)="selectHotel(hotel.id)">
+        <div class="card-body">
+          <table class="flight-table">
+            <tbody>
+              <tr class="flight-table__row">
+                <td class="flight-table__aerolinea">{{hotel.name}}</td>
+                <td class="flight-table__tarifa">
+                  <p>Desde</p>
+                  <div class="flight-table__tarifa-valor-container">
+                    <small>COP </small>
+                    <p class="flight-table__tarifa-valor">${{hotel.price}}</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>

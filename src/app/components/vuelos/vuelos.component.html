@@ -1,0 +1,26 @@
+<div class="vuelos">
+  <div *ngFor="let vuelo of vuelos" class="vuelos__container">
+    <div class="card"  (click)="openModal(vuelo.id)">
+      <div class="card-body">
+        <table class="flight-table">
+          <tbody>
+            <tr class="flight-table__row">
+              <td class="flight-table__aerolinea">Aerolínea A</td>
+              <td class="flight-table__ciudad-origen">{{vuelo.origin}}</td>
+              <td><img class="flight-table__logo-vuelo" src="../../../assets/ico-vuelo.png" alt=""></td>
+              <td class="flight-table__ciudad-destino">{{vuelo.destination}}</td>
+              <td class="flight-table__tarifa">
+                <p>Desde</p>
+                <div class="flight-table__tarifa-valor-container">
+                  <small>COP </small>
+                  <p class="flight-table__tarifa-valor">${{vuelo.price}}</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+<app-hoteles *ngIf="isModalOpen" (close)="closeModal()"></app-hoteles>

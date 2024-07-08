@@ -1,0 +1,70 @@
+.form-reserva{
+  display: flex;
+  position: relative;
+  gap: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 32px;
+  background-color: #b2d5ba;
+  overflow: hidden;
+
+  &__input{
+    display: flex;
+    background-color: #FFFFFF;
+    width: 25%;
+    padding: 20px;
+    flex-direction: column;
+
+
+    &-control{
+      border: none;
+      border-bottom: 1px solid #8F9491;
+      color: #83626d;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      width: 90%;
+      padding: 10px;
+      outline: none;
+    }
+
+
+    &-error{
+      color: #8F9491;
+      font-size: 14px;
+      margin-top: 5px;
+
+    }
+  }
+
+
+  &__button{
+    border: none;
+    border-radius: 8px;
+    background-color: #8F9491;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    width: 25%;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #595c5a;
+    }
+  }
+
+
+  &-label{
+    color: #595c5a;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
