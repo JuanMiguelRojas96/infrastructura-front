@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -16,11 +17,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.reservaForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      identificacion: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-      cantidad: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-      fechaLlegada: ['', Validators.required],
-      fechaSalida: ['', Validators.required]
+      name: ['', Validators.required],
+      identification_number: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      amount_people: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required]
     });
   }
 
@@ -28,7 +29,11 @@ export class HeaderComponent implements OnInit {
     if (this.reservaForm.valid) {
       this.formSubmitted.emit(this.reservaForm.value);
     } else {
-      console.log('Formulario no válido');
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Llene todos los campos",
+      });
     }
   }
 

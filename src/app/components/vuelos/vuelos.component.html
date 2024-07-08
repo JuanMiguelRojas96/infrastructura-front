@@ -5,7 +5,7 @@
         <table class="flight-table">
           <tbody>
             <tr class="flight-table__row">
-              <td class="flight-table__aerolinea">Aerolínea A</td>
+              <td class="flight-table__aerolinea">{{setAerolinea(vuelo.idAirline)}}</td>
               <td class="flight-table__ciudad-origen">{{vuelo.origin}}</td>
               <td><img class="flight-table__logo-vuelo" src="../../../assets/ico-vuelo.png" alt=""></td>
               <td class="flight-table__ciudad-destino">{{vuelo.destination}}</td>
@@ -22,5 +22,3 @@
       </div>
     </div>
 </div>
-
-<app-hoteles *ngIf="isModalOpen" (close)="closeModal()"></app-hoteles>

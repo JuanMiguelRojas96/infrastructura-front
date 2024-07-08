@@ -1,43 +1,43 @@
 <form class="form-reserva" [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
   <div class="form-reserva__input">
-    <label class="form-reserva-label" for="nombre">Nombre:</label>
-    <input class="form-reserva__input-control" id="nombre" type="text" formControlName="nombre">
-    <div class="form-reserva__input-error" *ngIf="reservaForm.get('nombre')?.invalid && reservaForm.get('nombre')?.touched">
+    <label class="form-reserva-label" for="name">Nombre:</label>
+    <input class="form-reserva__input-control" id="name" type="text" formControlName="name">
+    <div class="form-reserva__input-error" *ngIf="reservaForm.get('name')?.invalid && reservaForm.get('name')?.touched">
       El nombre es requerido.
     </div>
   </div>
 
   <div class="form-reserva__input">
-    <label class="form-reserva-label" for="identificacion">Número de Identificación:</label>
-    <input class="form-reserva__input-control" id="identificacion" type="number" formControlName="identificacion">
-    <div class="form-reserva__input-error" *ngIf="reservaForm.get('identificacion')?.invalid && reservaForm.get('identificacion')?.touched">
+    <label class="form-reserva-label" for="identification_number">Número de Identificación:</label>
+    <input class="form-reserva__input-control" id="identification_number" type="number" formControlName="identification_number">
+    <div class="form-reserva__input-error" *ngIf="reservaForm.get('identification_number')?.invalid && reservaForm.get('identification_number')?.touched">
       El número de identificación es requerido y debe ser numérico.
     </div>
   </div>
 
   <div class="form-reserva__input">
-    <label class="form-reserva-label" for="cantidad">Cantidad de Personas:</label>
-    <input class="form-reserva__input-control" id="cantidad" type="number" formControlName="cantidad">
-    <div class="form-reserva__input-error" *ngIf="reservaForm.get('cantidad')?.invalid && reservaForm.get('cantidad')?.touched">
+    <label class="form-reserva-label" for="amount_people">Cantidad de Personas:</label>
+    <input class="form-reserva__input-control" id="amount_people" type="number" formControlName="amount_people">
+    <div class="form-reserva__input-error" *ngIf="reservaForm.get('amount_people')?.invalid && reservaForm.get('amount_people')?.touched">
       El número de personas es requerido y debe ser númerico.
     </div>
   </div>
 
   <div class="form-reserva__input">
-    <label class="form-reserva-label" for="fechaLlegada">Fecha de Reserva:</label>
-    <input class="form-reserva__input-control" id="fechaLlegada" type="date" formControlName="fechaLlegada">
-    <div class="form-reserva__input-error" *ngIf="reservaForm.get('fechaLlegada')?.invalid && reservaForm.get('fechaLlegada')?.touched">
+    <label class="form-reserva-label" for="startDate">Fecha de Reserva:</label>
+    <input class="form-reserva__input-control" id="startDate" type="date" formControlName="startDate">
+    <div class="form-reserva__input-error" *ngIf="reservaForm.get('startDate')?.invalid && reservaForm.get('startDate')?.touched">
       La fecha de llegada es requerida.
     </div>
   </div>
 
   <div class="form-reserva__input">
-    <label class="form-reserva-label" for="fechaSalida">Fecha de Salida:</label>
-    <input class="form-reserva__input-control" id="fechaSalida" type="date" formControlName="fechaSalida">
-    <div class="form-reserva__input-error" *ngIf="reservaForm.get('fechaSalida')?.invalid && reservaForm.get('fechaSalida')?.touched">
+    <label class="form-reserva-label" for="endDate">Fecha de Salida:</label>
+    <input class="form-reserva__input-control" id="endDate" type="date" formControlName="endDate">
+    <div class="form-reserva__input-error" *ngIf="reservaForm.get('endDate')?.invalid && reservaForm.get('endDate')?.touched">
       La fecha de salida es requerida.
     </div>
   </div>
 
-  <button class="form-reserva__button" type="submit">Enviar</button>
+  <button class="form-reserva__button" type="submit">Reservar</button>
 </form>

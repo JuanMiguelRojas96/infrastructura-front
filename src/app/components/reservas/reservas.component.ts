@@ -9,8 +9,9 @@ import { HttpClient } from '@angular/common/http';
 export class ReservasComponent implements OnInit {
 
   reservaData: any;
-  vueloId: number | null = null;
-  hotelId: number | null = null;
+  id_flight: number | null = null;
+  id_hotel: number | null = null;
+  isModalOpen = false;
 
   constructor(private http: HttpClient) { }
 
@@ -23,22 +24,26 @@ export class ReservasComponent implements OnInit {
   }
 
   handleVueloSelected(vueloId: number): void {
-    this.vueloId = vueloId;
+    this.id_flight = vueloId;
+    this.isModalOpen = true;
     this.checkAllData();
   }
 
   handleHotelSelected(hotelId: number): void {
-    this.hotelId = hotelId;
+    this.id_hotel = hotelId;
+    this.isModalOpen = false;
     this.checkAllData();
   }
 
   checkAllData(): void {
-    if (this.reservaData && this.vueloId && this.hotelId) {
+    if (this.reservaData && this.id_flight && this.id_hotel) {
       const postData = {
         ...this.reservaData,
-        vueloId: this.vueloId,
-        hotelId: this.hotelId
+        id_flight: this.id_flight,
+        id_hotel: this.id_hotel
       };
+      console.log(postData);
+
 
       this.http.post('TU_URL_API', postData).subscribe(response => {
         console.log('Reserva realizada con éxito:', response);
