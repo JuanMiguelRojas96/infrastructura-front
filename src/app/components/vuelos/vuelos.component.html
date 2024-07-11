@@ -1,4 +1,4 @@
-<div class="vuelos">
+<div class="vuelos" *ngIf="isDataInformation">
   <div *ngFor="let vuelo of vuelos" class="vuelos__container">
     <div class="card"  (click)="openModal(vuelo.id)">
       <div class="card-body">

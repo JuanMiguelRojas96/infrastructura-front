@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 export class HeaderComponent implements OnInit {
 
   @Output() formSubmitted = new EventEmitter<any>();
+  @Output() dataInformation = new EventEmitter<boolean>();
 
   reservaForm: FormGroup = new FormGroup({});
 
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
   onSubmit(): void {
     if (this.reservaForm.valid) {
       this.formSubmitted.emit(this.reservaForm.value);
+      this.dataInformation.emit(true);
     } else {
       Swal.fire({
         icon: "error",

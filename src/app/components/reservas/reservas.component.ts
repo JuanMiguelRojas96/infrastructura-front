@@ -12,6 +12,7 @@ export class ReservasComponent implements OnInit {
   id_flight: number | null = null;
   id_hotel: number | null = null;
   isModalOpen = false;
+  isDataInformation: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +22,10 @@ export class ReservasComponent implements OnInit {
   handleFormSubmit(data: any): void {
     this.reservaData = data;
     this.checkAllData();
+  }
+
+  handleDataInformation(status: boolean): void {
+    this.isDataInformation = status;
   }
 
   handleVueloSelected(vueloId: number): void {
