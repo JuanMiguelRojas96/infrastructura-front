@@ -12,6 +12,7 @@ export class ConsultarReservaComponent implements OnInit {
   identificationNumber: string | null = null;
 
   reservations: any[] = [];
+  vuelo: any = {};
 
   constructor(private route: ActivatedRoute, private reservationService: ReservationService) { }
 
@@ -26,7 +27,18 @@ export class ConsultarReservaComponent implements OnInit {
     this.reservationService.getReservas(id).subscribe((reservations: any) => {
       this.reservations = reservations;
       console.log(this.reservations);
+    })
+  }
 
+  getHotelName(id: number): any {
+    this.reservationService.getHotel(id).subscribe((hotels: any) => {
+      return hotels.name
+    })
+  }
+
+  getFlightDetails(id: number): void {
+    this.reservationService.getVuelo(id).subscribe((flight: any) => {
+      this.vuelo = flight
     })
   }
 }

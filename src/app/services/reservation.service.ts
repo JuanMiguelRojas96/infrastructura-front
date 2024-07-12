@@ -19,6 +19,16 @@ export class ReservationService {
     return this.http.get(url);
   }
 
+  getHotel(id: number): Observable<any> {
+    const url = `${this.urlHotel}reservation/nameHotel/${id}`;
+    return this.http.get(url);
+  }
+
+  getVuelo(id: number): Observable<any> {
+    const url = `${this.urlVuelo}reservation/nameFlight/${id}`;
+    return this.http.get(url);
+  }
+
   getVuelos() {
     const url = `${this.urlVuelo}flight/`;
     return this.http.get(url);
