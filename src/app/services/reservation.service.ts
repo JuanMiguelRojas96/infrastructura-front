@@ -24,6 +24,11 @@ export class ReservationService {
     return this.http.get(url);
   }
 
+  getReservas(id: any) {
+    const url = `${this.urlReservas}reservation/${id}`;
+    return this.http.get(url);
+  }
+
   getAerolineas(){
     const url = `${this.urlVuelo}airline/`;
     return this.http.get(url);
