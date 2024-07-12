@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class ReservationService {
 
-  urlHotel: string = 'http://127.0.0.1:37771/';
-  urlVuelo: string = 'http://127.0.0.1:41229/';
-  urlReservas: string = 'url/';
+  urlHotel: string = 'http://127.0.0.1:8092/';
+  urlVuelo: string = 'http://127.0.0.1:8090/';
+  urlReservas: string = 'http://127.0.0.1:8091/';
 
 
   constructor(private http: HttpClient) { }
@@ -30,7 +30,7 @@ export class ReservationService {
   }
 
   postReservation(data: any): Observable<any> {
-    const url = `${this.urlVuelo}reservation/add`;
+    const url = `${this.urlReservas}reservation/add`;
     return this.http.post(url, data);
   }
 }
