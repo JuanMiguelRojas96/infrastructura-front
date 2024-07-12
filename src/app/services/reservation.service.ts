@@ -7,22 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class ReservationService {
 
-  urlBase: string = 'http://localhost:8080/';
+  urlHotel: string = 'http://127.0.0.1:37771/';
+  urlVuelo: string = 'http://127.0.0.1:41229/';
+
 
   constructor(private http: HttpClient) { }
 
   getHoteles(): Observable<any> {
-    const url = `${this.urlBase}hotel/`;
+    const url = `${this.urlHotel}hotel/`;
     return this.http.get(url);
   }
 
   getVuelos() {
-    const url = `${this.urlBase}flight/`;
+    const url = `${this.urlVuelo}flight/`;
     return this.http.get(url);
   }
 
   getAerolineas(){
-    const url = `${this.urlBase}airline/`;
+    const url = `${this.urlVuelo}airline/`;
     return this.http.get(url);
   }
 

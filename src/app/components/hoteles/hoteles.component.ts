@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
   templateUrl: './hoteles.component.html',
   styleUrls: ['./hoteles.component.scss']
 })
-export class HotelesComponent{
+export class HotelesComponent implements OnInit{
 
   hoteles: any[] = []
 
@@ -31,6 +31,10 @@ export class HotelesComponent{
   constructor(private reservationService: ReservationService) { }
   closeModal(): void {
     this.close.emit();
+  }
+
+  ngOnInit(): void {
+    this.getHoteles();
   }
 
   selectHotel(hotelId: number): void {
