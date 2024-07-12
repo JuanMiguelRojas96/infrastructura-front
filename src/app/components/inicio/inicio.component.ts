@@ -28,7 +28,7 @@ export class InicioComponent implements OnInit {
   consultarReservas(): void {
     if (this.identificationNumber) {
       this.reservationService.getReservas(this.identificationNumber).subscribe ((reservations: any) => {
-        if (reservations) {
+        if (reservations.length  > 0) {
           this.router.navigate(['/consultar', this.identificationNumber]);
         }else{
           alert('Esta identificación no tiene reservas.');
