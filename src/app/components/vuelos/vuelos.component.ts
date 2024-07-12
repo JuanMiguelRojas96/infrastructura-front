@@ -84,7 +84,7 @@ export class VuelosComponent implements OnInit {
   getVuelos(): void {
     this.reservationService.getVuelos().subscribe((data: any) => {
       this.vuelos = data;
-      
+
     });
   }
 

@@ -9,6 +9,7 @@ export class ReservationService {
 
   urlHotel: string = 'http://127.0.0.1:37771/';
   urlVuelo: string = 'http://127.0.0.1:41229/';
+  urlReservas: string = 'url/';
 
 
   constructor(private http: HttpClient) { }
@@ -28,4 +29,8 @@ export class ReservationService {
     return this.http.get(url);
   }
 
+  postReservation(data: any): Observable<any> {
+    const url = `${this.urlVuelo}reservation/add`;
+    return this.http.post(url, data);
+  }
 }

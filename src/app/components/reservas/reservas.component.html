@@ -1,3 +1,4 @@
 <app-header (formSubmitted)="handleFormSubmit($event)" (dataInformation)="handleDataInformation($event)"></app-header>
 <app-vuelos (vueloSelected)="handleVueloSelected($event)" [isDataInformation]="isDataInformation"></app-vuelos>
-<app-hoteles  *ngIf="isModalOpen" (hotelSelected)="handleHotelSelected($event)" (close)="isModalOpen = false"></app-hoteles>
+<app-hoteles *ngIf="isModalOpen" (hotelSelected)="handleHotelSelected($event)" (close)="isModalOpen = false"></app-hoteles>
+
