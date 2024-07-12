@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-inicio',
@@ -11,7 +12,7 @@ export class InicioComponent implements OnInit {
   mostrarConsulta = false;
   identificationNumber: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private reservationService: ReservationService) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,13 @@ export class InicioComponent implements OnInit {
 
   consultarReservas(): void {
     if (this.identificationNumber) {
-      this.router.navigate(['/consultar', this.identificationNumber]);
+      this.reservationService.getReservas(this.identificationNumber).subscribe ((reservations: any) => {
+        if (reservations) {
+          this.router.navigate(['/consultar', this.identificationNumber]);
+        }else{
+          alert('Esta identificación no tiene reservas.');
+        }
+      });
     } else {
       alert('Por favor ingrese el número de identificación.');
     }
