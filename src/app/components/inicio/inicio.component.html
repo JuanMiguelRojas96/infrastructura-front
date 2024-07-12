@@ -1,0 +1,14 @@
+<div class="inicio">
+  <h1>Bienvenido</h1>
+  <div class="botones">
+    <button (click)="showConsulta()">Consultar Reservas</button>
+    <button (click)="navigateToReservas()">Necesito Reservar</button>
+  </div>
+
+
+  <div class="consulta" *ngIf="mostrarConsulta">
+    <label for="identification_number">Número de Identificación:</label>
+    <input id="identification_number" type="number" [(ngModel)]="identificationNumber">
+    <button (click)="consultarReservas()">Consultar</button>
+  </div>
+</div>

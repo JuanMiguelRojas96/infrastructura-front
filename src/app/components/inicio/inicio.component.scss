@@ -1,0 +1,53 @@
+.inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+
+  button{
+    margin: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #8F9491;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    width: 80%;
+    cursor: pointer;
+  }
+
+  .botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .consulta{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    label{
+      color: #8F9491;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    input{
+      border: none;
+      border-bottom: 1px solid #8F9491;
+      color: #83626d;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      width: 90%;
+      padding: 10px;
+      margin: 5px;
+      outline: none;
+    }
+  }
+}
