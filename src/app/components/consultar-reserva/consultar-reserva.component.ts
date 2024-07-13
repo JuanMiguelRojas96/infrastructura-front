@@ -31,8 +31,9 @@ export class ConsultarReservaComponent implements OnInit {
   }
 
   getHotelName(id: number): any {
+    console.log(id);
     this.reservationService.getHotel(id).subscribe((hotels: any) => {
-      return hotels.name
+      return hotels
     })
   }
 
