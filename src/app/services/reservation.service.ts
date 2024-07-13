@@ -51,6 +51,6 @@ export class ReservationService {
 
   cancelarReserva(reservaId: any): Observable<any> {
     const url = `${this.urlReservas}reservation/delete/${reservaId}`;
-    return this.http.patch(url, null);
+    return this.http.patch(url, {});
   }
 }
