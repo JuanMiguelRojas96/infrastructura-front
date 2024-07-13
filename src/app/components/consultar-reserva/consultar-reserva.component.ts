@@ -10,9 +10,9 @@ import { ReservationService } from 'src/app/services/reservation.service';
 export class ConsultarReservaComponent implements OnInit {
 
   identificationNumber: string | null = null;
-
   reservations: any[] = [];
-  vuelo: any = {};
+  hoteles: any = {};
+  vuelos: any = {};
 
   constructor(private route: ActivatedRoute, private reservationService: ReservationService) { }
 
@@ -26,19 +26,32 @@ export class ConsultarReservaComponent implements OnInit {
   loadReservations(id: string | null): void {
     this.reservationService.getReservas(id).subscribe((reservations: any) => {
       this.reservations = reservations;
-      console.log(this.reservations);
+      this.loadHotelsAndFlights();
     })
   }
 
-  getHotelName(id: number): any {
-    this.reservationService.getHotel(id).subscribe((hotels: any) => {
-      return hotels.name
-    })
+  loadHotelsAndFlights(): void {
+    const hotelIds = [...new Set(this.reservations.map(r => r.idReservationHotel).filter(id => id))];
+    const flightIds = [...new Set(this.reservations.map(r => r.idReservationFlight).filter(id => id))];
+
+    hotelIds.forEach(id => {
+      this.reservationService.getHotel(id).subscribe((hotel: any) => {
+        this.hoteles[id] = hotel;
+      });
+    });
+
+    flightIds.forEach(id => {
+      this.reservationService.getVuelo(id).subscribe((flight: any) => {
+        this.vuelos[id] = `${flight.origin} a ${flight.destination}`;
+      });
+    });
   }
 
-  getFlightDetails(id: number): void {
-    this.reservationService.getVuelo(id).subscribe((flight: any) => {
-      this.vuelo = flight
-    })
+  getHotelName(id: number): string {
+    return this.hoteles[id] || 'N/A';
+  }
+
+  getFlightDetails(id: number): string {
+    return this.vuelos[id] || 'N/A';
   }
 }

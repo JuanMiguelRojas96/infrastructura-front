@@ -1,18 +1,14 @@
 <div class="consultar-reservas">
   <h2>Consulta de Reservas</h2>
-  <div *ngIf="reservations.length > 0; else noReservas">
+  <div>
     <div *ngFor="let reserva of reservations" class="reserva__container">
       <div class="card">
         <div class="card-body">
           <table class="reserva-table">
             <tbody>
               <tr class="reserva-table__row">
-                <td class="reserva-table__field">Nombre:</td>
-                <td>{{ reserva.name }}</td>
-              </tr>
-              <tr class="reserva-table__row">
                 <td class="reserva-table__field">Número de Identificación:</td>
-                <td>{{ reserva.identification_number }}</td>
+                <td>{{ reserva.identificationNumber }}</td>
               </tr>
               <tr class="reserva-table__row" *ngIf="reserva.idReservationHotel">
                 <td class="reserva-table__field">Hotel:</td>
@@ -28,7 +24,4 @@
       </div>
     </div>
   </div>
-  <ng-template #noReservas>
-    <p>No se encontraron reservas para el número de identificación proporcionado.</p>
-  </ng-template>
 </div>
