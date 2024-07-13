@@ -48,4 +48,9 @@ export class ReservationService {
     const url = `${this.urlReservas}reservation/add`;
     return this.http.post(url, data);
   }
+
+  cancelarReserva(reservaId: any): Observable<any> {
+    const url = `${this.urlReservas}reservation/delete/${reservaId}`;
+    return this.http.patch(url, null);
+  }
 }

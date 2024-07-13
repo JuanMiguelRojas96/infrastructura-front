@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
@@ -17,6 +18,10 @@ export class ConsultarReservaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private reservationService: ReservationService) { }
 
   ngOnInit(): void {
+    this.getReservations();
+  }
+
+  getReservations(): void {
     this.route.paramMap.subscribe(params => {
       this.identificationNumber = params.get('id');
       this.loadReservations(this.identificationNumber);
@@ -53,5 +58,33 @@ export class ConsultarReservaComponent implements OnInit {
 
   getFlightDetails(id: number): string {
     return this.vuelos[id] || 'N/A';
+  }
+
+
+  abrirModalCancelar(reservaId: number): void {
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: 'Esta acción cancelará la reserva seleccionada.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, cancelar reserva',
+      cancelButtonText: 'No, mantener reserva'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cancelarReserva(reservaId);
+      }
+    });
+  }
+
+  cancelarReserva(reservaId: number): void {
+    this.reservationService.cancelarReserva(reservaId).subscribe({
+      next: () => {
+        Swal.fire('Cancelada', 'La reserva ha sido cancelada exitosamente.', 'success');
+        this.getReservations();
+      },
+      error: (error: any) => {
+        Swal.fire('Error', 'Ocurrió un error al cancelar la reserva.', error.message);
+      }
+    });
   }
 }
