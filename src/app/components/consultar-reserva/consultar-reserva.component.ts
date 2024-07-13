@@ -36,7 +36,7 @@ export class ConsultarReservaComponent implements OnInit {
 
     hotelIds.forEach(id => {
       this.reservationService.getHotel(id).subscribe((hotel: any) => {
-        this.hoteles[id] = hotel;
+        this.hoteles[id] = hotel.name;
       });
     });
 

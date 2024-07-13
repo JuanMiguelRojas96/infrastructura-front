@@ -16,7 +16,7 @@
               </tr>
               <tr class="reserva-table__row" *ngIf="reserva.idReservationFlight">
                 <td class="reserva-table__field">Vuelo:</td>
-                <td></td>
+                <td>{{getFlightDetails(reserva.idReservationFlight)}}</td>
               </tr>
             </tbody>
           </table>
